@@ -2,1241 +2,899 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Freej Swaeleh Menu - قائمة فريج صويلح</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Freej Swaeleh Menu</title>
     <style>
-    :root {
-        --red: #D32F2F;
-        --dark-red: #B71C1C;
-        --light-gray: #f9f9f9;
-        --white: #ffffff;
-        --text: #333;
-    }
-    body {
-        font-family: 'Segoe UI', Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: var(--light-gray);
-        color: var(--text);
-        line-height: 1.6;
-    }
-    header {
-        background: linear-gradient(135deg, var(--red), var(--dark-red));
-        color: white;
-        text-align: center;
-        padding: 2rem 1rem;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-    header h1 {
-        margin: 0;
-        font-size: 2.5rem;
-        font-weight: 700;
-        letter-spacing: 1px;
-    }
-    .menu-container {
-        max-width: 1000px;
-        margin: 2rem auto;
-        padding: 0 1rem;
-    }
-    .menu-section {
-        margin-bottom: 3rem;
-        background: var(--white);
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    }
-    .menu-section h2 {
-        background: var(--red);
-        color: white;
-        margin: 0;
-        padding: 1rem 1.5rem;
-        font-size: 1.6rem;
-        font-weight: 600;
-        text-align: center;
-    }
-    .menu-item {
-        display: flex;
-        align-items: center;
-        padding: 1rem 1.5rem;
-        border-bottom: 1px solid #eee;
-        transition: background 0.3s;
-    }
-    .menu-item:hover { background-color: #fff5f5; }
-    .menu-item:last-child { border-bottom: none; }
-    .menu-item img {
-        width: 110px;
-        height: 110px;
-        object-fit: cover;
-        border-radius: 10px;
-        margin-right: 1.2rem;
-        box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-        flex-shrink: 0;
-        background: #f0f0f0;
-    }
-    .item-details {
-        flex-grow: 1;
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-    }
-    .item-name {
-        font-weight: 600;
-        font-size: 1.1rem;
-        color: var(--text);
-    }
-    .arabic-name {
-        font-size: 1rem;
-        color: var(--red);
-        font-weight: 500;
-        margin-top: 4px;
-    }
-    .price {
-        color: var(--dark-red);
-        font-weight: bold;
-        font-size: 1.2rem;
-        white-space: nowrap;
-    }
-
-    /* ═══════════════════════════════════════════
-       FIXED MOBILE LAYOUT – Works on ALL iPhones
-       ═══════════════════════════════════════════ */
-    @media (max-width: 768px) {
-        header h1 { font-size: 2rem; }
-
-        /* This line fixes the iOS 15 crash – safe & supported since iOS 9 */
-        .menu-section > div:nth-child(n+2) {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0;
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.5;
         }
-
-        .menu-item {
-            flex-direction: column;
+        header {
+            background-color: #8B4513;
+            color: white;
             text-align: center;
-            padding: 1rem 0.8rem;
-            border-bottom: none;
-            border-right: 1px solid #eee;
+            padding: 1.5rem;
         }
-        .menu-item:nth-child(even) { 
-            border-right: none; 
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
         }
-        .menu-item:nth-child(2n) { 
-            border-bottom: 1px solid #eee; 
+        .menu-container {
+            max-width: 900px;
+            margin: 1.5rem auto;
+            padding: 0 1rem;
         }
-        /* Remove bottom border from actual last row */
-        .menu-item:nth-last-child(1):nth-child(odd),
-        .menu-item:nth-last-child(2):nth-child(even) { 
-            border-bottom: none; 
+        .menu-section {
+            margin-bottom: 1.5rem;
         }
-
-        .menu-item img {
-            margin: 0 0 0.8rem 0;
-            width: 90px;
-            height: 90px;
+        .menu-section h2 {
+            color: #8B4513;
+            border-bottom: 2px solid #8B4513;
+            padding-bottom: 0.5rem;
+            font-size: 1.5rem;
         }
-        .item-details {
-            flex-direction: column;
+        .menu-item {
+            display: flex;
             align-items: center;
-            gap: 0.4rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px dashed #ccc;
         }
-    }
-
-    @media (max-width: 480px) {
-        header h1 { font-size: 1.8rem; }
-        .menu-section h2 { font-size: 1.3rem; }
-        .menu-item img { 
-            width: 80px; 
-            height: 80px; 
+        .menu-item img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            margin-right: 1rem;
+            border-radius: 4px;
         }
-    }
-</style>
+        .menu-item .item-details {
+            flex-grow: 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        .menu-item span {
+            font-weight: bold;
+            font-size: 1rem;
+        }
+        .price {
+            color: #2e7d32;
+            font-weight: bold;
+            font-size: 1rem;
+            white-space: nowrap;
+        }
+        .arabic-name {
+            font-size: 1rem;
+            color: #555;
+            margin-top: 0.2rem;
+        }
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+            .menu-container {
+                padding: 0 0.5rem;
+            }
+            .menu-section h2 {
+                font-size: 1.2rem;
+            }
+            .menu-item {
+                flex-direction: row;
+                align-items: center;
+            }
+            .menu-item img {
+                width: 120px;
+                height: 120px;
+                margin-right: 0.8rem;
+            }
+            .menu-item .item-details {
+                flex-direction: column;
+                gap: 0.4rem;
+            }
+            .menu-item span {
+                font-size: 0.9rem;
+            }
+            .price {
+                font-size: 0.9rem;
+            }
+            .arabic-name {
+                font-size: 1rem;
+            }
+        }
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+            .menu-section h2 {
+                font-size: 1rem;
+            }
+            .menu-item img {
+                width: 120px;
+                height: 120px;
+                margin-right: 0.8rem;
+            }
+            .menu-item span {
+                font-size: 0.85rem;
+            }
+            .price {
+                font-size: 0.85rem;
+            }
+            .arabic-name {
+                font-size: 0.7rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>Freej Swaeleh Menu<br><span style="font-size:1.4rem; opacity:0.95;">قائمة فريج صويلح</span></h1>
+        <h1>Freej Swaeleh Menu - قائمة فريج صويلح</h1>
     </header>
-
     <div class="menu-container">
-
-        <!-- Soups -->
-        <div class="menu-section">
-            <h2>🍲 Soups - شوربات</h2>
+	<div class="menu-section">
+            <h2>Soups - شوربات</h2>
             <div class="menu-item">
-                <img src="/images/soups/shrimp_soup.webp" alt="Shrimp Soup" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/soups\lentil_soup.jpg?raw=true" alt="Shrimp Soup">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Shrimp Soup</div>
-                        <div class="arabic-name">شوربة روبيان</div>
-                    </div>
-                    <div class="price">16.50 SAR</div>
+                    <span>Shrimp Soup <div class="arabic-name">شوربة روبيان</div></span>
+                    <span class="price">16.50 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/soups/lentil_soup.webp" alt="Lentil Soup" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/soups/lentil_soup.jpg?raw=true" alt="Lentil Soup">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Lentil Soup</div>
-                        <div class="arabic-name">شوربة عدس</div>
-                    </div>
-                    <div class="price">13.50 SAR</div>
+                    <span>Lentil Soup <div class="arabic-name">شوربة عدس</div></span>
+                    <span class="price">13.50 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/soups/chicken_corn_soup.webp" alt="Chicken Corn Soup" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/soups/chicken_corn_soup.jpg?raw=true" alt="Chicken Corn Soup">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Chicken Corn Soup</div>
-                        <div class="arabic-name">شوربة دجاج بالذرة</div>
-                    </div>
-                    <div class="price">13.50 SAR</div>
+                    <span>Chicken Corn Soup <div class="arabic-name">شوربة دجاج بالذرة</div></span>
+                    <span class="price">13.50 SAR</span>
                 </div>
             </div>
         </div>
-
-        <!-- Salads & Appetizers -->
         <div class="menu-section">
-            <h2>🥗 Salads & Appetizers - سلطات ومقبلات</h2>
+            <h2>Salads and Appetizers - سلطات ومقبلات</h2>
             <div class="menu-item">
-                <img src="/images/appetizer/Hummus.webp" alt="Hummus" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/salad%20n%20apetizers/Hummus.jpg?raw=true" alt="Hummous">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Hummous</div>
-                        <div class="arabic-name">حمص</div>
-                    </div>
-                    <div class="price">10.50 SAR</div>
+                    <span>Hummous <div class="arabic-name">حمص</div></span>
+                    <span class="price">10.50 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/appetizer/Mutabal.webp" alt="Mutabbal" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/salad%20n%20apetizers/Mutabal.jpg?raw=true" alt="Mutabbal">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Mutabbal</div>
-                        <div class="arabic-name">متبل</div>
-                    </div>
-                    <div class="price">10.50 SAR</div>
+                    <span>Mutabbal <div class="arabic-name">متبل</div></span>
+                    <span class="price">10.50 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/appetizer/Yogurt_with_cucumber.webp" alt="Yoghurt w/ Cucumber" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/salad%20n%20apetizers/Yogurt_with_cucumber.jpg?raw=true" alt="Yoghurt w/ Cucumber">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Yoghurt with Cucumber</div>
-                        <div class="arabic-name">لبن بالخيار</div>
-                    </div>
-                    <div class="price">10.50 SAR</div>
+                    <span>Yoghurt with Cucumber <div class="arabic-name">لبن بالخيار</div></span>
+                    <span class="price">10.50 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/appetizer/Green_Salad.webp" alt="Green Salad" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/salad%20n%20apetizers/Green_Salad.jpg?raw=true" alt="Green Salad">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Green Salad</div>
-                        <div class="arabic-name">سلطة خضراء</div>
-                    </div>
-                    <div class="price">10.50 SAR</div>
+                    <span>Green Salad <div class="arabic-name">سلطة خضراء</div></span>
+                    <span class="price">10.50 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/appetizer/Fattoush.webp" alt="Fattoush" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/salad%20n%20apetizers/Fattoush.jpg?raw=true" alt="Fattoush">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Fattoush</div>
-                        <div class="arabic-name">فتوش</div>
-                    </div>
-                    <div class="price">16.00 SAR</div>
+                    <span>Fattoush <div class="arabic-name">فتوش</div></span>
+                    <span class="price">16.00 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/appetizer/Tabboula.webp" alt="Tabbouleh" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/salad%20n%20apetizers/Tabboula.jpg?raw=true" alt="Tabbouleh">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Tabbouleh</div>
-                        <div class="arabic-name">تبولة</div>
-                    </div>
-                    <div class="price">10.50 SAR</div>
+                    <span>Tabbouleh <div class="arabic-name">تبولة</div></span>
+                    <span class="price">10.50 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/appetizer/Grape_Leaves.webp" alt="Grape Leaves" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/salad%20n%20apetizers/Grape_Leaves.jpg?raw=true" alt="Grape Leaves">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Grape Leaves</div>
-                        <div class="arabic-name">ورق عنب</div>
-                    </div>
-                    <div class="price">16.00 SAR</div>
+                    <span>Grape Leaves <div class="arabic-name">ورق عنب</div></span>
+                    <span class="price">16.00 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/appetizer/Baba_Ganouj.webp" alt="Baba Ganoush" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/salad%20n%20apetizers/Baba_Ganouj.jpg?raw=true" alt="Baba Ganoush">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Baba Ganoush</div>
-                        <div class="arabic-name">بابا غنوج</div>
-                    </div>
-                    <div class="price">10.50 SAR</div>
+                    <span>Baba Ganoush <div class="arabic-name">بابا غنوج</div></span>
+                    <span class="price">10.50 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/appetizer/Mayon_salad.webp" alt="Mayonnaise Salad" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/salad%20n%20apetizers/Mayon_salad.jpg?raw=true" alt="Mayonnaise Salad">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Mayonnaise Salad</div>
-                        <div class="arabic-name">سلطة مايونيز</div>
-                    </div>
-                    <div class="price">14.00 SAR</div>
+                    <span>Mayonnaise Salad <div class="arabic-name">سلطة مايونيز</div></span>
+                    <span class="price">14.00 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/appetizer/Roca_Salad.webp" alt="Roca Salad" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/salad%20n%20apetizers/Roca_Salad.jpg?raw=true" alt="Roca Salad">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Roca Salad</div>
-                        <div class="arabic-name">سلطة جرجير</div>
-                    </div>
-                    <div class="price">10.50 SAR</div>
+                    <span>Roca Salad <div class="arabic-name">سلطة جرجير</div></span>
+                    <span class="price">10.50 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/appetizer/Tuna_salad.webp" alt="Tuna Salad" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/salad%20n%20apetizers/Tuna_salad.jpg?raw=true" alt="Tuna Salad">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Tuna Salad</div>
-                        <div class="arabic-name">سلطة تونة</div>
-                    </div>
-                    <div class="price">17.00 SAR</div>
+                    <span>Tuna Salad <div class="arabic-name">سلطة تونة</div></span>
+                    <span class="price">17.00 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/appetizer/Corn_salad.webp" alt="Corn Salad" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/salad%20n%20apetizers/Corn_salad.jpg?raw=true" alt="Corn Salad">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Corn Salad</div>
-                        <div class="arabic-name">سلطة ذرة</div>
-                    </div>
-                    <div class="price">14.00 SAR</div>
+                    <span>Corn Salad <div class="arabic-name">سلطة ذرة</div></span>
+                    <span class="price">14.00 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/appetizer/Beet_Salad.webp" alt="Beetroot Salad" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/salad%20n%20apetizers/Beet_Salad.jpg?raw=true" alt="Beetroot Salad">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Beetroot Salad</div>
-                        <div class="arabic-name">سلطة شمندر</div>
-                    </div>
-                    <div class="price">14.00 SAR</div>
+                    <span>Beetroot Salad <div class="arabic-name">سلطة شمندر</div></span>
+                    <span class="price">14.00 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/appetizer/shrimp_salad.webp" alt="Shrimp Salad" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/salad%20n%20apetizers/shrimp_salad.jpg?raw=true" alt="Shrimp Salad">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Shrimp Salad</div>
-                        <div class="arabic-name">سلطة روبيان</div>
-                    </div>
-                    <div class="price">22.00 SAR</div>
+                    <span>Shrimp Salad <div class="arabic-name">سلطة روبيان</div></span>
+                    <span class="price">22.00 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/appetizer/Mix_salad_Large.webp" alt="Mixed Salad Large" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/salad%20n%20apetizers/Mix_salad_Large.jpg?raw=true" alt="Mixed Salad (Large)">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Mixed Salad (Large)</div>
-                        <div class="arabic-name">سلطة مشكلة (كبير)</div>
-                    </div>
-                    <div class="price">69.00 SAR</div>
+                    <span>Mixed Salad (Large) <div class="arabic-name">سلطة مشكلة (كبير)</div></span>
+                    <span class="price">69.00 SAR</span>
                 </div>
             </div>
         </div>
-
-        <!-- Kuwaiti Specialties -->
         <div class="menu-section">
-            <h2>🍤 Kuwaiti Specialties - أكلات كويتية</h2>
+            <h2>Kuwaiti Food - أكلات كويتية</h2>
             <div class="menu-item">
-                <img src="/images/kuwaiti_dishes/chick_maj.webp" alt="Chicken Majbous" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/kuwaiti%20dishes/chick_maj.jpg?raw=true" alt="Chicken Majbous">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Chicken Majbous</div>
-                        <div class="arabic-name">مجبوس دجاج</div>
-                    </div>
-                    <div class="price">28.50 SAR</div>
+                    <span>Chicken Majbous <div class="arabic-name">مجبوس دجاج</div></span>
+                    <span class="price">28.50 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/kuwaiti_dishes/zubaidi_swaleh.webp" alt="Muthabaq Zubaidi Swaileh" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/kuwaiti%20dishes/zubaidi_swaleh.jpg?raw=true" alt="Zubaidi Swaileh">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Muthabaq Zubaidi Swaileh</div>
-                        <div class="arabic-name">مطبق زبيدي صويلح</div>
-                    </div>
-                    <div class="price">79.00 SAR</div>
+                    <span>Muthabaq Zubaidi Swaeleh <div class="arabic-name">مطبق زبيدي صويلح</div></span>
+                    <span class="price">79.00 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/kuwaiti_dishes/hamoor_swaeleh.webp" alt="Hamour Swaileh" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/kuwaiti%20dishes/hamoor_swaeleh.jpg?raw=true" alt="Hamour Swaileh">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Hamour Swaileh</div>
-                        <div class="arabic-name">هامور صويلح</div>
-                    </div>
-                    <div class="price">79.00 SAR</div>
+                    <span>Hamour Swaeleh <div class="arabic-name">هامور صويلح</div></span>
+                    <span class="price">79.00 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/kuwaiti_dishes/Mawosh_Rubyan.webp" alt="Mawash Prawns Fresh" width="110" height="110" loading="lazy">
+                <img src="https://github.com/omarfreejswaeleh/freejswaelehmenu/blob/main/images/Mawosh_Rubyan.jpg?raw=true" alt="Fresh Prawns Mawash">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Mawash Prawns - Fresh</div>
-                        <div class="arabic-name">مموش ربيان طرى</div>
-                    </div>
-                    <div class="price">59.00 SAR</div>
+                    <span>Mawash Prawns - Fresh <div class="arabic-name">مموش ربيان طرى</div></span>
+                    <span class="price">59.00 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/kuwaiti_dishes/mawash_prawns_dry.webp" alt="Mawash Prawns Dry" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/kuwaiti%20dishes/mawash_prawns_dry.jpg?raw=true" alt="Dry Prawns Mawash">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Mawash Prawns - Dry</div>
-                        <div class="arabic-name">مموش ربيان يابس</div>
-                    </div>
-                    <div class="price">36.00 SAR</div>
+                    <span>Mawash Prawns - Dry <div class="arabic-name">مموش ربيان يابس</div></span>
+                    <span class="price">36.00 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/kuwaiti_dishes/kepsa_swaeleh.webp" alt="Kebsa Swaeleh" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/kuwaiti%20dishes/kepsa_swaeleh.jpg?raw=true" alt="Kebsa Swaileh">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Kebsa Swaeleh</div>
-                        <div class="arabic-name">كبسة صويلح</div>
-                    </div>
-                    <div class="price">89.00 SAR</div>
+                    <span>Kebsa Swaeleh <div class="arabic-name">كبسة صويلح</div></span>
+                    <span class="price">89.00 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/kuwaiti_dishes/magluba.webp" alt="Magluba" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/kuwaiti%20dishes/magluba.jpg?raw=true" alt="Magluba">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Magluba</div>
-                        <div class="arabic-name">مقلوبة</div>
-                    </div>
-                    <div class="price">88.00 SAR</div>
+                    <span>Magluba <div class="arabic-name">مقلوبة</div></span>
+                    <span class="price">88.00 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/kuwaiti_dishes/wr_marak_hamour.webp" alt="White Rice with marak" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/kuwaiti%20dishes/wr_marak_hamour.jpg?raw=true" alt="White Rice with marak">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">White Rice with marak (Balool/Zubaidi/Hamour)</div>
-                        <div class="arabic-name">أرز أبيض مع مرق</div>
-                    </div>
-                    <div class="price">79.00 SAR</div>
+                    <span>White Rice with marak (Balool/Zubaidi/Hamour) <div class="arabic-name">أرز أبيض مع مرق</div></span>
+                    <span class="price">79.00 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/kuwaiti_dishes/Murabiyan.webp" alt="Murabian Prawns" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/kuwaiti%20dishes/Murabiyan.jpg?raw=true" alt="Murabian (Prawns)">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Murabian (Prawns)</div>
-                        <div class="arabic-name">مربين روبيان</div>
-                    </div>
-                    <div class="price">79.00 SAR</div>
+                    <span>Murabian (Prawns) <div class="arabic-name">مربين روبيان</div></span>
+                    <span class="price">79.00 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/kuwaiti_dishes/logo.webp" alt="Murabian Zubaidi Swaileh" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/logo.jpeg?raw=true" alt="Murabian Zubaidi Swaileh">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Murabian Zubaidi Swaileh</div>
-                        <div class="arabic-name">مربين زبيدي صويلح</div>
-                    </div>
-                    <div class="price">96.00 SAR</div>
+                    <span>Murabian Zubaidi Swaeleh <div class="arabic-name">مربين زبيدي صويلح</div></span>
+                    <span class="price">96.00 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/kuwaiti_dishes/prawns_bir.webp" alt="Prawns Biriyani" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/kuwaiti%20dishes/prawns_bir.jpg?raw=true" alt="Prawns Biriyani">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Prawns Biriyani</div>
-                        <div class="arabic-name">برياني روبيان</div>
-                    </div>
-                    <div class="price">59.00 SAR</div>
+                    <span>Prawns Biriyani <div class="arabic-name">برياني روبيان</div></span>
+                    <span class="price">59.00 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/kuwaiti_dishes/fish_gajider.webp" alt="Fish Ga'ad" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/kuwaiti%20dishes/fish_gajider.jpg?raw=true" alt="Fish Ga'ad">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Fish Ga'ad</div>
-                        <div class="arabic-name">سمك قاع الجدر</div>
-                    </div>
-                    <div class="price">79.00 SAR</div>
+                    <span>Fish Ga'ad <div class="arabic-name">سمك قاع الجدر</div></span>
+                    <span class="price">79.00 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/kuwaiti_dishes/seabass_grilled.webp" alt="Grilled Seabas" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/kuwaiti%20dishes/seabass_grilled.jpg?raw=true" alt="Grilled Seabas">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Grilled Seabas</div>
-                        <div class="arabic-name">سيباس مشوي</div>
-                    </div>
-                    <div class="price">139.00 SAR</div>
+                    <span>Grilled Seabas <div class="arabic-name">سيباس مشوي</div></span>
+                    <span class="price">139.00 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/kuwaiti_dishes/mutton_bir.webp" alt="Mutton Biriyani" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/kuwaiti%20dishes/mutton_bir.jpg?raw=true" alt="Mutton Biriyani">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Mutton Biriyani</div>
-                        <div class="arabic-name">برياني لحم</div>
-                    </div>
-                    <div class="price">54.00 SAR</div>
+                    <span>Mutton Biriyani <div class="arabic-name">برياني لحم</div></span>
+                    <span class="price">54.00 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/kuwaiti_dishes/chicken_biri.webp" alt="Chicken Biriyani" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/kuwaiti%20dishes/chicken_biri.jpg?raw=true" alt="Chicken Biriyani">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Chicken Biriyani</div>
-                        <div class="arabic-name">برياني دجاج</div>
-                    </div>
-                    <div class="price">36.00 SAR</div>
+                    <span>Chicken Biriyani <div class="arabic-name">برياني دجاج</div></span>
+                    <span class="price">36.00 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/kuwaiti_dishes/bamiya_sweleh.webp" alt="Bamiya Swaileh" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/kuwaiti%20dishes/bamiya_sweleh.jpg?raw=true" alt="Bamiya Swaileh">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Bamiya Swaileh</div>
-                        <div class="arabic-name">بامية صويلح</div>
-                    </div>
-                    <div class="price">89.00 SAR</div>
+                    <span>Bamiya Swaeleh <div class="arabic-name">بامية صويلح</div></span>
+                    <span class="price">89.00 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/kuwaiti_dishes/wht_rice_marak_leham.webp" alt="White Rice with Mutton Curry" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/kuwaiti%20dishes/wht_rice_marak_leham.jpg?raw=true" alt="White Rice with Mutton Curry">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">White Rice with Mutton Curry</div>
-                        <div class="arabic-name">أرز أبيض مع مرق لحم</div>
-                    </div>
-                    <div class="price">42.00 SAR</div>
+                    <span>White Rice with Mutton Curry <div class="arabic-name">أرز أبيض مع مرق لحم</div></span>
+                    <span class="price">42.00 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/kuwaiti_dishes/white_rice_marak_chicken.webp" alt="White Rice with Chicken Curry" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/kuwaiti%20dishes/white_rice_marak_chicken.jpg?raw=true" alt="White Rice with Chicken Curry">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">White Rice with Chicken Curry</div>
-                        <div class="arabic-name">أرز أبيض مع مرق دجاج</div>
-                    </div>
-                    <div class="price">29.50 SAR</div>
+                    <span>White Rice with Chicken Curry <div class="arabic-name">أرز أبيض مع مرق دجاج</div></span>
+                    <span class="price">29.50 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/kuwaiti_dishes/Kubba_Rice.webp" alt="Rice Kubbah" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/kuwaiti%20dishes/Kubba_Rice.jpg?raw=true" alt="Rice Kubbah">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Kubbah Rice</div>
-                        <div class="arabic-name">كبة أرز</div>
-                    </div>
-                    <div class="price">19.50 SAR</div>
+                    <span>Kubbah Rice <div class="arabic-name">كبة أرز</div></span>
+                    <span class="price">19.50 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/kuwaiti_dishes/Kubbah_Burgal.webp" alt="Kubbah Burgal" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/kuwaiti%20dishes/Kubbah_Burgal.jpg?raw=true" alt="Kubbah Burgal / Laban Kubbah">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Kubbah Burgal</div>
-                        <div class="arabic-name">كبة برغل</div>
-                    </div>
-                    <div class="price">19.50 SAR</div>
+                    <span>Kubbah Burgal <div class="arabic-name">كبة برغل </div></span>
+                    <span class="price">19.50 SAR</span>
+                </div>
+            </div>
+	    <div class="menu-item">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/kuwaiti%20dishes/Kubbah_Laban.jpg?raw=true" alt="Kubbah Burgal / Laban Kubbah">
+                <div class="item-details">
+                    <span>Laban Kubbah <div class="arabic-name"> كبة لبن</div></span>
+                    <span class="price">19.50 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/kuwaiti_dishes/Kubbah_Laban.webp" alt="Laban Kubbah" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/kuwaiti%20dishes/Jereesh.jpg?raw=true" alt="Harees, Jarees">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Laban Kubbah</div>
-                        <div class="arabic-name">كبة لبن</div>
-                    </div>
-                    <div class="price">19.50 SAR</div>
+                    <span>Jarees <div class="arabic-name">هريس، جريش</div></span>
+                    <span class="price">16.50 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/kuwaiti_dishes/Jereesh.webp" alt="Jarees" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/kuwaiti%20dishes/margouk.jpg?raw=true" alt="Markookh">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Jarees</div>
-                        <div class="arabic-name">هريس، جريش</div>
-                    </div>
-                    <div class="price">16.50 SAR</div>
+                    <span>Markookh <div class="arabic-name">مرقوق</div></span>
+                    <span class="price">24.50 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/kuwaiti_dishes/margouk.webp" alt="Markookh" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/kuwaiti%20dishes/kabbooth.jpg?raw=true" alt="Kabooth">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Markookh</div>
-                        <div class="arabic-name">مرقوق</div>
-                    </div>
-                    <div class="price">24.50 SAR</div>
+                    <span>Kabooth <div class="arabic-name">قبوط</div></span>
+                    <span class="price">24.50 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/kuwaiti_dishes/kabbooth.webp" alt="Kabooth" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/kuwaiti%20dishes/Tashreeb_Chicken.jpg?raw=true" alt="Tashreeb">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Kabooth</div>
-                        <div class="arabic-name">قبوط</div>
-                    </div>
-                    <div class="price">24.50 SAR</div>
+                    <span>Tashreeb Chicken <div class="arabic-name">تشريبة دجاج </div></span>
+                    <span class="price">19.50 SAR</span>
+                </div>
+            </div>
+	    <div class="menu-item">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/kuwaiti%20dishes/Tashreeb_Laham.jpg?raw=true" alt="Tashreeb">
+                <div class="item-details">
+                    <span>Tashreeb Laham <div class="arabic-name">تشريبة لحم </div></span>
+                    <span class="price">19.50 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/kuwaiti_dishes/Tashreeb_Chicken.webp" alt="Tashreeb Chicken" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/kuwaiti%20dishes/Fried_shrimps.jpg?raw=true" alt="Fried Shrimps">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Tashreeb Chicken</div>
-                        <div class="arabic-name">تشريبة دجاج</div>
-                    </div>
-                    <div class="price">19.50 SAR</div>
+                    <span>Fried Shrimps <div class="arabic-name">روبيان مقلي</div></span>
+                    <span class="price">45.00 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/kuwaiti_dishes/Tashreeb_Laham.webp" alt="Tashreeb Laham" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/kuwaiti%20dishes/Aseeda.jpg?raw=true" alt="Aseeda">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Tashreeb Laham</div>
-                        <div class="arabic-name">تشريبة لحم</div>
-                    </div>
-                    <div class="price">19.50 SAR</div>
+                    <span>Aseeda <div class="arabic-name">عصيدة</div></span>
+                    <span class="price">18.00 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/kuwaiti_dishes/Fried_shrimps.webp" alt="Fried Shrimps" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/kuwaiti%20dishes/Kubba_Mix.jpg?raw=true" alt="Kubba Mix">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Fried Shrimps</div>
-                        <div class="arabic-name">روبيان مقلي</div>
-                    </div>
-                    <div class="price">45.00 SAR</div>
+                    <span>Kubba Mix <div class="arabic-name">كبة مشكلة</div></span>
+                    <span class="price">19.50 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/kuwaiti_dishes/Aseeda.webp" alt="Aseeda" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/logo.jpeg?raw=true" alt="Prawns Masala">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Aseeda</div>
-                        <div class="arabic-name">عصيدة</div>
-                    </div>
-                    <div class="price">18.00 SAR</div>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="/images/kuwaiti_dishes/Kubba_Mix.webp" alt="Kubba Mix" width="110" height="110" loading="lazy">
-                <div class="item-details">
-                    <div>
-                        <div class="item-name">Kubba Mix</div>
-                        <div class="arabic-name">كبة مشكلة</div>
-                    </div>
-                    <div class="price">19.50 SAR</div>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="/images/kuwaiti_dishes/logo.webp" alt="Prawns Masala" width="110" height="110" loading="lazy">
-                <div class="item-details">
-                    <div>
-                        <div class="item-name">Prawns Masala</div>
-                        <div class="arabic-name">حميسة ربيان</div>
-                    </div>
-                    <div class="price">45.00 SAR</div>
+                    <span>Prawns Masala <div class="arabic-name">حميسة ربيان</div></span>
+                    <span class="price">45.00 SAR</span>
                 </div>
             </div>
         </div>
-
-        <!-- Grilled Items -->
         <div class="menu-section">
-            <h2>🔥 Grilled Items - مشاوي</h2>
+            <h2>Grilled - مشاوي</h2>
             <div class="menu-item">
-                <img src="/images/kuwaiti_dishes/kabab.webp" alt="Kebab" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/grilled/kabab.jpg?raw=true" alt="Kebab">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Kebab</div>
-                        <div class="arabic-name">كباب</div>
-                    </div>
-                    <div class="price">34.00 SAR</div>
+                    <span>Kebab <div class="arabic-name">كباب</div></span>
+                    <span class="price">34.00 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/kuwaiti_dishes/kabab_kishkash.webp" alt="Kebab Khashkhash" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/grilled/kabab_kishkash.jpg?raw=true" alt="Kebab Khashkhash">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Kebab Khashkhash</div>
-                        <div class="arabic-name">كباب خشخاش</div>
-                    </div>
-                    <div class="price">39.00 SAR</div>
+                    <span>Kebab Khashkhash <div class="arabic-name">كباب خشخاش</div></span>
+                    <span class="price">39.00 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/kuwaiti_dishes/kebab_swaeleh.webp" alt="Kebab Bu Swaileh" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/grilled/kebab_swaeleh.jpg?raw=true" alt="Kebab Bu Swaileh">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Kebab Bu Swaileh</div>
-                        <div class="arabic-name">كباب بو صويلح</div>
-                    </div>
-                    <div class="price">47.00 SAR</div>
+                    <span>Kebab Bu Swaeleh <div class="arabic-name">كباب بو صويلح</div></span>
+                    <span class="price">47.00 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/kuwaiti_dishes/chicken_tikka.webp" alt="Chicken Tikka" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/grilled/chicken_tikka.jpg?raw=true" alt="Chicken Tikka">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Chicken Tikka</div>
-                        <div class="arabic-name">شيش طاووق</div>
-                    </div>
-                    <div class="price">33.00 SAR</div>
+                    <span>Chicken Tikka <div class="arabic-name">شيش طاووق</div></span>
+                    <span class="price">33.00 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/kuwaiti_dishes/mutton_tikka.webp" alt="Mutton Tikka" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/grilled/mutton_tikka.jpg?raw=true" alt="Mutton Tikka">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Mutton Tikka</div>
-                        <div class="arabic-name">تكة لحم</div>
-                    </div>
-                    <div class="price">36.00 SAR</div>
+                    <span>Mutton Tikka <div class="arabic-name">تكة لحم</div></span>
+                    <span class="price">36.00 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/kuwaiti_dishes/lamb_chops.webp" alt="Lamb Chops" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/grilled/lamb_chops.jpg?raw=true" alt="Lamb Chops">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Lamb Chops</div>
-                        <div class="arabic-name">ريش</div>
-                    </div>
-                    <div class="price">49.00 SAR</div>
+                    <span>Lamb Chops <div class="arabic-name">ريش</div></span>
+                    <span class="price">49.00 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/kuwaiti_dishes/arayes_mutton.webp" alt="Arayes Mutton" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/grilled/arayes_mutton.jpg?raw=true" alt="Arayes Mutton">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Arayes Mutton</div>
-                        <div class="arabic-name">عرايس لحم</div>
-                    </div>
-                    <div class="price">18.00 SAR</div>
+                    <span>Arayes Mutton <div class="arabic-name">عرايس لحم</div></span>
+                    <span class="price">18.00 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/kuwaiti_dishes/grill_half.webp" alt="Grilled Chicken Half" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/grilled/grill_half.jpg?raw=true" alt="Grilled Chicken (Half)">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Grilled Chicken (Half)</div>
-                        <div class="arabic-name">دجاج مشوي (نص)</div>
-                    </div>
-                    <div class="price">22.00 SAR</div>
+                    <span>Grilled Chicken (Half) <div class="arabic-name">دجاج مشوي (نص)</div></span>
+                    <span class="price">22.00 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/kuwaiti_dishes/mix_grill_oneP.webp" alt="Mix Grill One Person" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/grilled/mix_grill_oneP.jpg?raw=true" alt="Mix Grill (One Person)">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Mix Grill (One Person)</div>
-                        <div class="arabic-name">مشاوي مشكلة (شخص واحد)</div>
-                    </div>
-                    <div class="price">32.00 SAR</div>
+                    <span>Mix Grill (One Person) <div class="arabic-name">مشاوي مشكلة (شخص واحد)</div></span>
+                    <span class="price">32.00 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/kuwaiti_dishes/mix_grill_med.webp" alt="Mix Grill Medium" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/grilled/mix_grill_med.jpg?raw=true" alt="Mix Grill (Medium)">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Mix Grill (Medium)</div>
-                        <div class="arabic-name">مشاوي مشكلة (متوسط)</div>
-                    </div>
-                    <div class="price">89.00 SAR</div>
+                    <span>Mix Grill (Medium) <div class="arabic-name">مشاوي مشكلة (متوسط)</div></span>
+                    <span class="price">89.00 SAR</span>
                 </div>
             </div>
-            <div class="menu-item">
-                <img src="/images/kuwaiti_dishes/mix_gr_lrg.webp" alt="Mix Grill Large" width="110" height="110" loading="lazy">
+	<div class="menu-item">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/grilled/mix_gr_lrg.jpg?raw=true" alt="Mix Grill (Medium)">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Mix Grill (Large)</div>
-                        <div class="arabic-name">مشاوي مشكلة (كبير)</div>
-                    </div>
-                    <div class="price">119.00 SAR</div>
+                    <span>Mix Grill (Large) <div class="arabic-name">مشاوي مشكلة (كبير)</div></span>
+                    <span class="price">119.00 SAR</span>
                 </div>
             </div>
         </div>
-
-        <!-- Hot Drinks -->
         <div class="menu-section">
-            <h2>☕ Hot Drinks - مشروبات ساخنة</h2>
+            <h2>Hot Drinks - مشروبات ساخنة</h2>
             <div class="menu-item">
-                <img src="/images/kuwaiti_dishes/logo.webp" alt="Karak" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/logo.jpeg?raw=true" alt="Kadak">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Karak</div>
-                        <div class="arabic-name">كرك</div>
-                    </div>
-                    <div class="price">7.00 SAR</div>
+                    <span>Karak <div class="arabic-name">كرك</div></span>
+                    <span class="price">7.00 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/kuwaiti_dishes/logo.webp" alt="Tea Small" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/logo.jpeg?raw=true" alt="Tea (small)">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Tea (small)</div>
-                        <div class="arabic-name">شاي (صغير)</div>
-                    </div>
-                    <div class="price">7.00 SAR</div>
+                    <span>Tea (small) <div class="arabic-name">شاي (صغير)</div></span>
+                    <span class="price">7.00 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/kuwaiti_dishes/logo.webp" alt="Tea Big" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/logo.jpeg?raw=true" alt="Tea (big)">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Tea (big)</div>
-                        <div class="arabic-name">شاي (كبير)</div>
-                    </div>
-                    <div class="price">13.50 SAR</div>
+                    <span>Tea (big) <div class="arabic-name">شاي (كبير)</div></span>
+                    <span class="price">13.50 SAR</span>
                 </div>
             </div>
         </div>
-
-        <!-- Desserts & Sweets -->
         <div class="menu-section">
-            <h2>🍰 Desserts & Sweets - حلويات</h2>
+            <h2>Sweet Corner - ركن الحلويات</h2>
             <div class="menu-item">
-                <img src="/images/sweet_corner/Halwa_omani.webp" alt="Halwa Omani Small" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/sweets/Halwa_omani.jpg?raw=true" alt="Halwa Omani (small)">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Halwa Omani (small)</div>
-                        <div class="arabic-name">حلوى عمانية (صغير)</div>
-                    </div>
-                    <div class="price">29.00 SAR</div>
+                    <span>Halwa Omani (small) <div class="arabic-name">حلوى عمانية (صغير)</div></span>
+                    <span class="price">29.00 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/sweet_corner/Rahash.webp" alt="Rahash Small" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/sweets/Rahash.jpg?raw=true" alt="Rahash (small)">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Rahash (small)</div>
-                        <div class="arabic-name">رهش (صغير)</div>
-                    </div>
-                    <div class="price">40.00 SAR</div>
+                    <span>Rahash (small) <div class="arabic-name">رهش (صغير)</div></span>
+                    <span class="price">40.00 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/sweet_corner/barazik.webp" alt="Barazik" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/sweets/barazik.jpg?raw=true" alt="Barazik">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Barazik</div>
-                        <div class="arabic-name">برازق</div>
-                    </div>
-                    <div class="price">32.00 SAR</div>
+                    <span>Barazik <div class="arabic-name">برازق</div></span>
+                    <span class="price">32.00 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/sweet_corner/Darabeel.webp" alt="Darabeel" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/sweets/Darabeel.jpg?raw=true" alt="Darabeel">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Darabeel</div>
-                        <div class="arabic-name">درابيل</div>
-                    </div>
-                    <div class="price">32.00 SAR</div>
+                    <span>Darabeel <div class="arabic-name">درابيل</div></span>
+                    <span class="price">32.00 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/sweet_corner/guraiba.webp" alt="Quraibia" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/sweets/guraiba.jpg?raw=true" alt="Quraibia">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Quraibia</div>
-                        <div class="arabic-name">غريبة</div>
-                    </div>
-                    <div class="price">32.00 SAR</div>
+                    <span>Quraibia <div class="arabic-name">غريبة</div></span>
+                    <span class="price">32.00 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/kuwaiti_dishes/logo.webp" alt="Cup Cake" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/logo.jpeg?raw=true" alt="Cup Cake">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Cup Cake</div>
-                        <div class="arabic-name">كب كيك</div>
-                    </div>
-                    <div class="price">32.00 SAR</div>
+                    <span>Cup Cake <div class="arabic-name">كب كيك</div></span>
+                    <span class="price">32.00 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/kuwaiti_dishes/logo.webp" alt="Mix Sweet" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/logo.jpeg?raw=true" alt="Mix Sweet">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Mix Sweet</div>
-                        <div class="arabic-name">حلويات مشكلة</div>
-                    </div>
-                    <div class="price">57.00 SAR</div>
+                    <span>Mix Sweet <div class="arabic-name">حلويات مشكلة</div></span>
+                    <span class="price">57.00 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/kuwaiti_dishes/logo.webp" alt="Cake Zafran" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/logo.jpeg?raw=true" alt="Cake Zafran">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Cake Zafron</div>
-                        <div class="arabic-name">كيكة زعفران</div>
-                    </div>
-                    <div class="price">32.00 SAR</div>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="/images/dessert/cake_sweleh.webp" alt="Freej Swaileh Cake" width="110" height="110" loading="lazy">
-                <div class="item-details">
-                    <div>
-                        <div class="item-name">Freej Swaeleh Cake</div>
-                        <div class="arabic-name">كيكة فريج صويلح</div>
-                    </div>
-                    <div class="price">15.00 SAR</div>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="/images/dessert/cake_mango.webp" alt="Mango Cake" width="110" height="110" loading="lazy">
-                <div class="item-details">
-                    <div>
-                        <div class="item-name">Mango Cake</div>
-                        <div class="arabic-name">كيكة مانجو</div>
-                    </div>
-                    <div class="price">15.00 SAR</div>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="/images/dessert/cake_buiscut.webp" alt="Biscuits Cake" width="110" height="110" loading="lazy">
-                <div class="item-details">
-                    <div>
-                        <div class="item-name">Biscuits Cake</div>
-                        <div class="arabic-name">كيكة بسكويت</div>
-                    </div>
-                    <div class="price">15.00 SAR</div>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="/images/dessert/Luqaimat.webp" alt="Luqaimat" width="110" height="110" loading="lazy">
-                <div class="item-details">
-                    <div>
-                        <div class="item-name">Luqaimat</div>
-                        <div class="arabic-name">لقيمات</div>
-                    </div>
-                    <div class="price">21.00 SAR</div>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="/images/dessert/Balaleet.webp" alt="Balaleet" width="110" height="110" loading="lazy">
-                <div class="item-details">
-                    <div>
-                        <div class="item-name">Balaleet</div>
-                        <div class="arabic-name">بلاليط</div>
-                    </div>
-                    <div class="price">18.00 SAR</div>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="/images/kuwaiti_dishes/logo.webp" alt="Season Fruits" width="110" height="110" loading="lazy">
-                <div class="item-details">
-                    <div>
-                        <div class="item-name">Season Fruits</div>
-                        <div class="arabic-name">فواكه موسمية</div>
-                    </div>
-                    <div class="price">15.00 SAR</div>
+                    <span>Cake Zafron <div class="arabic-name">كيكة زعفران</div></span>
+                    <span class="price">32.00 SAR</span>
                 </div>
             </div>
         </div>
-
-        <!-- Juices & Cocktails -->
         <div class="menu-section">
-            <h2>🧃 Juices & Cocktails - عصائر وكوكتيلات</h2>
+            <h2>Dessert - حلويات</h2>
             <div class="menu-item">
-                <img src="/images/juices/orange.webp" alt="Orange" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/dessert/cake_sweleh.jpg?raw=true" alt="Freej Swaileh Cake">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Orange</div>
-                        <div class="arabic-name">برتقال</div>
-                    </div>
-                    <div class="price">13.00 SAR</div>
+                    <span>Freej Swaeleh Cake <div class="arabic-name">كيكة فريج صويلح</div></span>
+                    <span class="price">15.00 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/juices/carrot.webp" alt="Carrot" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/dessert/cake_mango.jpg?raw=true" alt="Mango Cake">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Carrot</div>
-                        <div class="arabic-name">جزر</div>
-                    </div>
-                    <div class="price">13.00 SAR</div>
+                    <span>Mango Cake <div class="arabic-name">كيكة مانجو</div></span>
+                    <span class="price">15.00 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/juices/apple.webp" alt="Apple" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/dessert/cake_buiscut.jpg?raw=true" alt="Biscuits Cake">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Apple</div>
-                        <div class="arabic-name">تفاح</div>
-                    </div>
-                    <div class="price">12.50 SAR</div>
+                    <span>Biscuits Cake <div class="arabic-name">كيكة بسكويت</div></span>
+                    <span class="price">15.00 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/juices/lemon.webp" alt="Lemon" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/dessert/Luqaimat.jpg?raw=true" alt="Luqaimat">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Lemon</div>
-                        <div class="arabic-name">ليمون</div>
-                    </div>
-                    <div class="price">12.00 SAR</div>
+                    <span>Luqaimat <div class="arabic-name">لقيمات</div></span>
+                    <span class="price">21.00 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/juices/lemon_with_mint.webp" alt="Lemon with Mint" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/dessert/Balaleet.jpg?raw=true" alt="Balaleet">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Lemon with Mint</div>
-                        <div class="arabic-name">ليمون بالنعناع</div>
-                    </div>
-                    <div class="price">14.50 SAR</div>
+                    <span>Balaleet <div class="arabic-name">بلاليط</div></span>
+                    <span class="price">18.00 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/juices/banana_with_milk.webp" alt="Banana with Milk" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/logo.jpeg?raw=true" alt="Season Fruits">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Banana with Milk</div>
-                        <div class="arabic-name">موز بالحليب</div>
-                    </div>
-                    <div class="price">13.00 SAR</div>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="/images/juices/pine_apple.webp" alt="Pineapple" width="110" height="110" loading="lazy">
-                <div class="item-details">
-                    <div>
-                        <div class="item-name">Pineapple</div>
-                        <div class="arabic-name">أناناس</div>
-                    </div>
-                    <div class="price">13.00 SAR</div>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="/images/juices/pomegranate.webp" alt="Pomegranate" width="110" height="110" loading="lazy">
-                <div class="item-details">
-                    <div>
-                        <div class="item-name">Pomegranate</div>
-                        <div class="arabic-name">رومان</div>
-                    </div>
-                    <div class="price">12.50 SAR</div>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="/images/juices/kiwi.webp" alt="Kiwi" width="110" height="110" loading="lazy">
-                <div class="item-details">
-                    <div>
-                        <div class="item-name">Kiwi</div>
-                        <div class="arabic-name">كيوي</div>
-                    </div>
-                    <div class="price">12.50 SAR</div>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="/images/juices/sweet_melon.webp" alt="Sweet Melon" width="110" height="110" loading="lazy">
-                <div class="item-details">
-                    <div>
-                        <div class="item-name">Sweet Melon</div>
-                        <div class="arabic-name">شمام</div>
-                    </div>
-                    <div class="price">12.50 SAR</div>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="/images/juices/mango_juice.webp" alt="Mango with Mint" width="110" height="110" loading="lazy">
-                <div class="item-details">
-                    <div>
-                        <div class="item-name">Mango with Mint</div>
-                        <div class="arabic-name">مانجو بالنعناع</div>
-                    </div>
-                    <div class="price">12.50 SAR</div>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="/images/juices/baidan.webp" alt="Baidan" width="110" height="110" loading="lazy">
-                <div class="item-details">
-                    <div>
-                        <div class="item-name">Baidan</div>
-                        <div class="arabic-name">بيدان</div>
-                    </div>
-                    <div class="price">13.00 SAR</div>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="/images/cocktail/ice_cream_fs.webp" alt="Freej Swaileh Ice Cream" width="110" height="110" loading="lazy">
-                <div class="item-details">
-                    <div>
-                        <div class="item-name">Freej Swaileh Ice Cream</div>
-                        <div class="arabic-name">آيس كريم فريج صويلح</div>
-                    </div>
-                    <div class="price">24.00 SAR</div>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="/images/cocktail/samadi.webp" alt="Samadi" width="110" height="110" loading="lazy">
-                <div class="item-details">
-                    <div>
-                        <div class="item-name">Samadi</div>
-                        <div class="arabic-name">صمدي</div>
-                    </div>
-                    <div class="price">14.00 SAR</div>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="/images/cocktail/embatoor.webp" alt="Embratoor" width="110" height="110" loading="lazy">
-                <div class="item-details">
-                    <div>
-                        <div class="item-name">Embratoor</div>
-                        <div class="arabic-name">إمبراطور</div>
-                    </div>
-                    <div class="price">14.00 SAR</div>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="/images/cocktail/fakhfakina.webp" alt="Fakhfakhina" width="110" height="110" loading="lazy">
-                <div class="item-details">
-                    <div>
-                        <div class="item-name">Fakhfakhina</div>
-                        <div class="arabic-name">فخفخينا</div>
-                    </div>
-                    <div class="price">14.00 SAR</div>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="/images/cocktail/abu_abdurahman.webp" alt="Abu Abdurahman" width="110" height="110" loading="lazy">
-                <div class="item-details">
-                    <div>
-                        <div class="item-name">Abu Abdurahman</div>
-                        <div class="arabic-name">أبو عبد الرحمن</div>
-                    </div>
-                    <div class="price">14.00 SAR</div>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="/images/cocktail/milk_shake.webp" alt="Milk Shake" width="110" height="110" loading="lazy">
-                <div class="item-details">
-                    <div>
-                        <div class="item-name">Milk Shake</div>
-                        <div class="arabic-name">ميلك شيك</div>
-                    </div>
-                    <div class="price">14.00 SAR</div>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="/images/cocktail/mango_shake.webp" alt="Mango Shake" width="110" height="110" loading="lazy">
-                <div class="item-details">
-                    <div>
-                        <div class="item-name">Mango Shake</div>
-                        <div class="arabic-name">مانجو شيك</div>
-                    </div>
-                    <div class="price">14.00 SAR</div>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="/images/kuwaiti_dishes/logo.webp" alt="Cocktail" width="110" height="110" loading="lazy">
-                <div class="item-details">
-                    <div>
-                        <div class="item-name">Cocktail</div>
-                        <div class="arabic-name">كوكتيل</div>
-                    </div>
-                    <div class="price">14.00 SAR</div>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="/images/kuwaiti_dishes/logo.webp" alt="Cocktail Shamie" width="110" height="110" loading="lazy">
-                <div class="item-details">
-                    <div>
-                        <div class="item-name">Cocktail Shamie</div>
-                        <div class="arabic-name">كوكتيل شامي</div>
-                    </div>
-                    <div class="price">14.00 SAR</div>
+                    <span>Season Fruits <div class="arabic-name">فواكه موسمية</div></span>
+                    <span class="price">15.00 SAR</span>
                 </div>
             </div>
         </div>
-
-        <!-- Beverages -->
+       <div class="menu-section">
+            <h2>Juice - عصائر</h2>
+            <div class="menu-item">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/juices/orange.jpg?raw=true" alt="Orange">
+                <div class="item-details">
+                    <span>Orange <div class="arabic-name">برتقال</div></span>
+                    <span class="price">13.00 SAR</span>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/juices/carrot.jpg?raw=true" alt="Carrot">
+                <div class="item-details">
+                    <span>Carrot <div class="arabic-name">جزر</div></span>
+                    <span class="price">13.00 SAR</span>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/juices/apple.jpg?raw=true" alt="Apple">
+                <div class="item-details">
+                    <span>Apple <div class="arabic-name">تفاح</div></span>
+                    <span class="price">12.50 SAR</span>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/juices/lemon.jpg?raw=true" alt="Lemon">
+                <div class="item-details">
+                    <span>Lemon <div class="arabic-name">ليمون</div></span>
+                    <span class="price">12.00 SAR</span>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/juices/lemon_with_mint.jpg?raw=true" alt="Lemon with Mint">
+                <div class="item-details">
+                    <span>Lemon with Mint <div class="arabic-name">ليمون بالنعناع</div></span>
+                    <span class="price">14.50 SAR</span>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/juices/banana_with_milk.jpg?raw=true" alt="Banana with Milk">
+                <div class="item-details">
+                    <span>Banana with Milk <div class="arabic-name">موز بالحليب</div></span>
+                    <span class="price">13.00 SAR</span>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/juices/pine_apple.jpg?raw=true" alt="Pineapple">
+                <div class="item-details">
+                    <span>Pineapple <div class="arabic-name">أناناس</div></span>
+                    <span class="price">13.00 SAR</span>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/juices/pomegranate.jpg?raw=true" alt="Pomegranate">
+                <div class="item-details">
+                    <span>Pomegranate <div class="arabic-name">رومان</div></span>
+                    <span class="price">12.50 SAR</span>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/juices/kiwi.jpg?raw=true" alt="Kiwi">
+                <div class="item-details">
+                    <span>Kiwi <div class="arabic-name">كيوي</div></span>
+                    <span class="price">12.50 SAR</span>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/juices/sweet_melon.jpg?raw=true" alt="Sweet Melon">
+                <div class="item-details">
+                    <span>Sweet Melon <div class="arabic-name">شمام</div></span>
+                    <span class="price">12.50 SAR</span>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/juices/mango_juice.jpg?raw=true" alt="Mango with Mint">
+                <div class="item-details">
+                    <span>Mango with Mint <div class="arabic-name">مانجو بالنعناع</div></span>
+                    <span class="price">12.50 SAR</span>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/juices/baidan.jpg?raw=true" alt="Baidan">
+                <div class="item-details">
+                    <span>Baidan <div class="arabic-name">بيدان</div></span>
+                    <span class="price">13.00 SAR</span>
+                </div>
+            </div>
+        </div>
         <div class="menu-section">
-            <h2>🥤 Beverages - مشروبات غازية</h2>
+            <h2>Cocktails - كوكتيلات</h2>
             <div class="menu-item">
-                <img src="/images/soft_drinks/water_small.webp" alt="Water Small" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/ice_cream_fs.jpg?raw=true" alt="Freej Swaileh Ice Cream">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Water (small)</div>
-                        <div class="arabic-name">ماء (صغير)</div>
-                    </div>
-                    <div class="price">3.50 SAR</div>
+                    <span>Freej Swaeleh Ice Cream <div class="arabic-name">آيس كريم فريج صويلح</div></span>
+                    <span class="price">24.00 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/soft_drinks/water_big.webp" alt="Water Big" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/cocktails/samadi.jpg?raw=true" alt="Samadi">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Water (big)</div>
-                        <div class="arabic-name">ماء (كبير)</div>
-                    </div>
-                    <div class="price">6.00 SAR</div>
+                    <span>Samadi <div class="arabic-name">صمدي</div></span>
+                    <span class="price">14.00 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/soft_drinks/pepsi_diet.webp" alt="Pepsi Diet" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/cocktails/embatoor.jpg?raw=true" alt="Embratoor">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Pepsi / Diet</div>
-                        <div class="arabic-name">بيبسي / دايت</div>
-                    </div>
-                    <div class="price">3.50 SAR</div>
+                    <span>Embratoor <div class="arabic-name">إمبراطور</div></span>
+                    <span class="price">14.00 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/soft_drinks/7up_diet.webp" alt="7Up Diet" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/cocktails/fakhfakina.jpg?raw=true" alt="Fakhfakhina">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">7Up / Diet</div>
-                        <div class="arabic-name">سيفن أب / دايت</div>
-                    </div>
-                    <div class="price">3.50 SAR</div>
+                    <span>Fakhfakhina <div class="arabic-name">فخفخينا</div></span>
+                    <span class="price">14.00 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/soft_drinks/leban.webp" alt="Butter Milk" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/cocktails/abu_abdurahman.jpg?raw=true" alt="Abu Abdurahman">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Butter Milk</div>
-                        <div class="arabic-name">لبن</div>
-                    </div>
-                    <div class="price">7.00 SAR</div>
+                    <span>Abu Abdurahman <div class="arabic-name">أبو عبد الرحمن</div></span>
+                    <span class="price">14.00 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/kuwaiti_dishes/logo.webp" alt="Farm Butter Milk" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/cocktails/milk_shake.jpg?raw=true" alt="Milk Shake">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Farm Butter Milk</div>
-                        <div class="arabic-name">لبن مزارع</div>
-                    </div>
-                    <div class="price">7.00 SAR</div>
+                    <span>Milk Shake <div class="arabic-name">ميلك شيك</div></span>
+                    <span class="price">14.00 SAR</span>
                 </div>
             </div>
             <div class="menu-item">
-                <img src="/images/kuwaiti_dishes/logo.webp" alt="Camel Milk" width="110" height="110" loading="lazy">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/cocktails/mango_shake.jpg?raw=true" alt="Mango Shake">
                 <div class="item-details">
-                    <div>
-                        <div class="item-name">Camel Milk</div>
-                        <div class="arabic-name">حليب الإبل</div>
-                    </div>
-                    <div class="price">7.00 SAR</div>
+                    <span>Mango Shake <div class="arabic-name">مانجو شيك</div></span>
+                    <span class="price">14.00 SAR</span>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/logo.jpeg?raw=true" alt="Cocktail">
+                <div class="item-details">
+                    <span>Cocktail <div class="arabic-name">كوكتيل</div></span>
+                    <span class="price">14.00 SAR</span>
+                </div>
+            </div>
+	    <div class="menu-item">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/logo.jpeg?raw=true" alt="Cocktail">
+                <div class="item-details">
+                    <span>Cocktail Shamie<div class="arabic-name">كوكتيل شامي</div></span>
+                    <span class="price">14.00 SAR</span>
+                </div>
+            </div>
+        </div>
+	<div class="menu-section">
+            <h2>Beverages - مشروبات</h2>
+            <div class="menu-item">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/water_small.jpg?raw=true" alt="Water (small)">
+                <div class="item-details">
+                    <span>Water (small) <div class="arabic-name">ماء (صغير)</div></span>
+                    <span class="price">3.50 SAR</span>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/water_big.jpg?raw=true" alt="Water (big)">
+                <div class="item-details">
+                    <span>Water (big) <div class="arabic-name">ماء (كبير)</div></span>
+                    <span class="price">6.00 SAR</span>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="http://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/PEPSI.JPG?raw=true" alt="Pepsi / Diet">
+                <div class="item-details">
+                    <span>Pepsi / Diet <div class="arabic-name">بيبسي / دايت</div></span>
+                    <span class="price">3.50 SAR</span>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/7UP.JPG?raw=true" alt="7Up / Diet">
+                <div class="item-details">
+                    <span>7Up / Diet <div class="arabic-name">سيفن أب / دايت</div></span>
+                    <span class="price">3.50 SAR</span>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/leban.jpg?raw=true" alt="Milk">
+                <div class="item-details">
+                    <span>Butter Milk <div class="arabic-name">لبن</div></span>
+                    <span class="price">7.00 SAR</span>
+                </div>
+            </div>
+	    <div class="menu-item">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/logo.jpeg?raw=true" alt="Milk">
+                <div class="item-details">
+                    <span>Farm Butter Milk <div class="arabic-name">لبن مزارع</div></span>
+                    <span class="price">7.00 SAR</span>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="https://github.com/freejswaelehriyadh786/freejwaelehriyadh/blob/main/images/logo.jpeg?raw=true" alt="Camel Milk">
+                <div class="item-details">
+                    <span>Camel Milk <div class="arabic-name">حليب الإبل</div></span>
+                    <span class="price">7.00 SAR</span>
                 </div>
             </div>
         </div>
     </div>
 </body>
+
 </html>
+
+
+
